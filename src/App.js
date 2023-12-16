@@ -1,7 +1,13 @@
 import React from "react";
 import "./styles/tailwind.css";
-const App = () => {
-	return <div className="text-3xl">Hello World!</div>;
+import Menu from "./components/Menu";
+
+const Home = () => {
+	return (
+		<>
+			<Menu />
+		</>
+	);
 };
 
-export default App;
+export default Home;
