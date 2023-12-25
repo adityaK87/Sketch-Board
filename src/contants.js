@@ -7,4 +7,12 @@ const COLORS = {
 	YELLOW: "yellow",
 };
 
-export { COLORS };
+const MENU_ITEMS = {
+	PENCIL: "PENCIL",
+	ERASER: "ERASER",
+	UNDO: "UNDO",
+	REDO: "REDO",
+	DOWNLOAD: "DOWNLOAD",
+};
+
+export { COLORS, MENU_ITEMS };
