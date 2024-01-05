@@ -18,9 +18,10 @@ const Menu = () => {
 	const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);
 
 	const handleMenuClick = (itemName) => {
-		dispatch(itemName);
+		dispatch(menuItemClick(itemName));
 	};
 
+	console.log("Active Menu Item", activeMenuItem);
 	return (
 		<div className={styles.menuContainer}>
 			<div
