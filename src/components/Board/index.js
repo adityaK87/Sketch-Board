@@ -2,17 +2,40 @@ import { useEffect, useRef, useLayoutEffect } from "react";
 import styles from "./index.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
+import { menuItemClick, actionItemClick } from "../../slices/menuSlice";
+import { MENU_ITEMS } from "../../contants";
+
 const Board = () => {
 	const canvasRef = useRef(null);
 	const shouldDraw = useRef(false);
 
 	const dispatch = useDispatch();
 
-	const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);
+	const { activeMenuItem, actionMenuItem } = useSelector(
+		(state) => state.menu
+	);
 	const { color, size } = useSelector(
 		(state) => state.toolbox[activeMenuItem]
 	);
 
+	// Add DOWNLOAD feature
+	useEffect(() => {
+		if (!canvasRef.current) return;
+		const canvas = canvasRef.current;
+		const context = canvas.getContext("2d");
+
+		if (actionMenuItem === MENU_ITEMS.DOWNLOAD) {
+			const URL = canvas.toDataURL();
+			const anchor = document.createElement("a");
+			anchor.href = URL;
+			anchor.download = "sketch.jpg";
+			anchor.click();
+			console.log(URL);
+		}
+		dispatch(actionItemClick(null));
+	}, [actionMenuItem, dispatch]);
+
+	// Add functionality to draw
 	useEffect(() => {
 		if (!canvasRef.current) return;
 		const canvas = canvasRef.current;

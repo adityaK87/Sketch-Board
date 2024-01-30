@@ -20,6 +20,9 @@ const Menu = () => {
 	const handleMenuClick = (itemName) => {
 		dispatch(menuItemClick(itemName));
 	};
+	const handleActionItemClick = (itemName) => {
+		dispatch(actionItemClick(itemName));
+	};
 
 	console.log("Active Menu Item", activeMenuItem);
 	return (
@@ -44,7 +47,9 @@ const Menu = () => {
 			<div className={styles.iconWrapper}>
 				<FontAwesomeIcon icon={faRotateRight} className={styles.icon} />
 			</div>
-			<div className={styles.iconWrapper}>
+			<div
+				className={styles.iconWrapper}
+				onClick={() => handleActionItemClick(MENU_ITEMS.DOWNLOAD)}>
 				<FontAwesomeIcon
 					icon={faFileArrowDown}
 					className={styles.icon}
