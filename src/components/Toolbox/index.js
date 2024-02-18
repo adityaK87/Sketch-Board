@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.css";
-import { COLORS, MENU_ITEMS } from "../../contants";
+import { MENU_ITEMS } from "../../contants";
 import { SketchPicker } from "react-color";
-import cx from "classnames";
+// import cx from "classnames";
 
 import { changeColor, changeBrushSize } from "../../slices/toolboxSlice";
 

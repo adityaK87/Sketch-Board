@@ -1,8 +1,8 @@
 import { useEffect, useRef, useLayoutEffect } from "react";
-import styles from "./index.module.css";
+// import styles from "./index.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
-import { menuItemClick, actionItemClick } from "../../slices/menuSlice";
+import { actionItemClick } from "../../slices/menuSlice";
 import { MENU_ITEMS } from "../../contants";
 
 const Board = () => {
