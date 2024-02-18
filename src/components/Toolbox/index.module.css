@@ -5,10 +5,11 @@
 	background-color: theme("colors.background1");
 
 	.toolItem {
-		@apply mb-5;
+		@apply mb-5 flex flex-col justify-center text-left;
 
 		.toolText {
-			font-size: 11px;
+			font-size: 15px;
+			font-weight: 600;
 			color: theme("colors.text1");
 		}
 		.itemContainer {

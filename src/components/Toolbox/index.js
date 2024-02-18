@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.css";
 import { COLORS, MENU_ITEMS } from "../../contants";
+import { SketchPicker } from "react-color";
 import cx from "classnames";
 
 import { changeColor, changeBrushSize } from "../../slices/toolboxSlice";
@@ -24,8 +25,9 @@ const Toolbox = () => {
 		);
 	};
 
-	const updateColor = (newColor) => {
-		dispatch(changeColor({ item: activeMenuItem, color: newColor }));
+	const handleChangeComplete = (color) => {
+		dispatch(changeColor({ item: activeMenuItem, color: color.hex }));
+		console.log(color);
 	};
 
 	return (
@@ -33,7 +35,13 @@ const Toolbox = () => {
 			{showStrokeToolOption && (
 				<div className={styles.toolItem}>
 					<h4 className={styles.toolText}>Stroke Color</h4>
-					<div className={styles.itemContainer}>
+					<SketchPicker
+						color={color}
+						onChange={handleChangeComplete}
+						disableAlpha={true}
+					/>
+
+					{/* <div className={styles.itemContainer}>
 						<div
 							className={cx(styles.colorBox, {
 								[styles.active]: color === COLORS.BLACK,
@@ -88,7 +96,7 @@ const Toolbox = () => {
 							}}
 							style={{ backgroundColor: COLORS.YELLOW }}
 						/>
-					</div>
+					</div> */}
 				</div>
 			)}
 			{showBrushToolOption && (
